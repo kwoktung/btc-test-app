@@ -10,7 +10,7 @@ import {
   import { drizzle } from "drizzle-orm/postgres-js"
   import type { AdapterAccountType } from "next-auth/adapters"
    
-  const connectionString = "postgres://127.0.0.1:5432/btc-demo"
+  const connectionString = process.env.AUTH_DRIZZLE_URL ?? ''
   const pool = postgres(connectionString, { max: 1 })
    
   export const db = drizzle(pool)

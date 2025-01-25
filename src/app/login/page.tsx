@@ -1,13 +1,24 @@
 import { signIn } from "@/auth"
+import { Input } from "@/components/ui/input"
+import { auth } from "@/auth"
+import { redirect } from 'next/navigation'
 
-export default function Home() {
-  return <form
+import { Button } from "@/components/ui/button"
+
+export default async function Home() {
+  const session = await auth()
+  if (session) {
+    return redirect('/')
+  }
+  return <div className="w-full h-full p-4">
+    <form
   action={async (formData) => {
     "use server"
-    await signIn("resend", { ...formData, redirectTo: '/' })
+    await signIn("resend", formData)
   }}
 >
-  <input type="text" name="email" placeholder="Email" />
+  <Input type="text" name="email" placeholder="Email" />
   <button type="submit">Signin with Resend</button>
 </form>
+  </div>
 }

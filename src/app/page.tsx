@@ -1,5 +1,10 @@
-import { signIn } from "@/auth"
+import { LogoutButton } from '@/components/biz/logout-button'
+import { UserInfo } from '@/components/biz/user-info'
 
 export default function Home() {
-  return <div>home</div>
+  return <div>
+    home
+    <UserInfo />
+    <LogoutButton></LogoutButton>
+  </div>
 }
