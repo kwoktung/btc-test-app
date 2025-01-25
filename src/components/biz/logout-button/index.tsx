@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 export function LogoutButton() {
   return <div>
     <form
-      action={async (formData) => {
+      action={async () => {
         "use server"
         await signOut({ redirectTo: '/login' })
       }}

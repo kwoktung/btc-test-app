@@ -11,6 +11,7 @@ const seed = bip39.mnemonicToSeedSync(mnemonic);
 const hdkey1 = HDKey.fromMasterSeed(seed);
 
 export const getUserAccountId = (user: Session['user']) => {
+    console.log(user)
     return 1111
 }
 

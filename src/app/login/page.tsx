@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { auth } from "@/auth"
 import { redirect } from 'next/navigation'
 
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 
 export default async function Home() {
   const session = await auth()
